@@ -1,0 +1,80 @@
+{% block body %}
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    <div class="flex w-full h-screen">
+
+        <div class="w-1/2">
+
+            <h3 class="my-0 mx-auto text-center font-bold text-4xl w-2/4 mt-32 mb-6">Login your Account</h3>
+
+            <form class="w-2/5 mx-auto px-6 pt-6 pb-8 mb-4" method="post">
+
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="checkbox mb-4">You are logged in as
+                        {{ app.user.username }},
+                        <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <div class="mb-5">
+                    <label for="inputEmail" class="block text-gray-701 text-sm font-bold mb-2">E-Mail</label>
+                    <input type="email" value="{{ last_username }}" name="email" class="rounded-full form-input"
+                           id="inputEmail" placeholder="Your E-Mail" required="required" autofocus="autofocus">
+                </div>
+
+                <div class="mb-7">
+                    <label for="inputPassword" class="block text-gray-701 text-sm font-bold mb-2">Password</label>
+                    <input type="password" name="password" class="rounded-full form-input" id="inputPassword"
+                           placeholder="******************" required="required">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                </div>
+
+                <div class="flex items-center justify-between my-4">
+                    <button id="loginBtn"
+                            class="security-btn bg-button-blue hover:bg-white text-white hover:text-button-blue"
+                            type="submit">
+                        Login
+                    </button>
+                    <a href="{{ path('app_register') }}" id="registrationBtn"
+                       class="security-btn bg-white hover:bg-button-blue hover:text-white text-button-blue"
+                       type="submit">
+                        Register
+                    </a>
+                </div>
+
+                <div class="flex justify-between">
+
+                    <div class="md:flex md:items-center ml-4">
+                        <input class="mr-2 leading-tight" type="checkbox" name="_remember_me" id="exampleCheck0">
+                        <label class="text-gray-500 font-bold" for="exampleCheck0">
+							<span class="text-sm">
+								Remember me!
+							</span>
+                        </label>
+                    </div>
+
+                    <a class="text-gray-500 font-bold text-sm mx-auto" href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="w-1/2 bg-no-repeat bg-cover image"
+             style="background-image: url({{ asset('build/images/books.jpeg') }})"></div>
+
+    </div>
+
+{% endblock %}

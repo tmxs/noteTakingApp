@@ -1,0 +1,116 @@
+<div class="sidenav w-1/5 bg-dark-blue text-white font-semibold hidden xl:block">
+
+    <div class="nav-item inline-flex">
+
+        <a href="{{ path('notes_list') }}" class="mt-1 inline-flex">
+            <img src="{{ asset('build/images/icons/note.png') }}" alt="note" class="mr-2">
+            <p class="mt-1">All Notes</p>
+        </a>
+
+        <a href="{{ path('note_new') }}" class="ml-6 mt-1">
+            <img src="{{ asset('build/images/icons/add.png') }}" alt="add-note">
+        </a>
+
+    </div>
+
+    <div class="recentNotes nav-item">
+
+        <div class="inline-flex">
+            <img src="{{ asset('build/images/icons/paperstack.png') }}" alt="paperstack" class="mr-2">
+            <p>Recent Notes</p>
+        </div>
+
+        <ul class="ml-6">
+            {% for recentNote in recentNotes %}
+                <li>
+                    <a href="{{ path('note_edit', {'id' : recentNote.id }) }}" class="inline-flex">
+                        <img src="{{ asset('build/images/icons/note-small.png') }}" alt="note-small" class="mr-2">
+                        <p>{{ (recentNote.title|length > 20 ? recentNote.title|slice(0, 20) ~ '…' : recentNote.title) }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <div class="nav-item">
+
+        <a href="{{ path('notebook_list') }}" class="inline-flex">
+            <img src="{{ asset('build/images/icons/shelf.png') }}" alt="shelf">
+            <p>Notebooks</p>
+        </a>
+
+        {% if notebooks %}
+            <ul class="ml-6">
+                {% for notebook in notebooks %}
+                    <li>
+                        <a href="{{ path('notebooks', {'alias': notebook.title }) }}" class="inline-flex">
+                            <img src="{{ asset('build/images/icons/book.png') }}" alt="book" class="mr-2">
+                            <p>{{ (notebook.title|length > 20 ? notebook.title|slice(0, 19) ~ '…' : notebook.title) }}
+                                ({{ notebook.notes|length }})</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+    <div class="nav-item">
+        <a href="#" class="inline-flex">
+            <img src="{{ asset('build/images/icons/bookmark-navbar.png') }}" alt="star">
+            <p class="mt-2">Bookmarks</p>
+        </a>
+
+        {% if bookmarkedNotes %}
+            <ul class="ml-6">
+                {% for bookmarkedNote in bookmarkedNotes %}
+                    <li>
+                        <a href="{{ path('note_edit', {'id' : bookmarkedNote.id }) }}" class="inline-flex">
+                            <img src="{{ asset('build/images/icons/note-small.png') }}" alt="note-small" class="mr-2">
+                            <p>{{ (bookmarkedNote.title|length > 20 ? bookmarkedNote.title|slice(0, 20) ~ '…' : bookmarkedNote.title) }}</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+    <div class="nav-item">
+        <a href="#" class="inline-flex">
+            <img src="{{ asset('build/images/icons/tag.png') }}" alt="tag">
+            <p>Tags</p>
+        </a>
+
+        {% if tags %}
+            <ul class="ml-6">
+                {% for tag in tags %}
+                    <li>
+                        <a href="{{ path('tags', {'alias':  tag.title}) }}" class="inline-flex">
+                            <img src="{{ asset('build/images/icons/tag.png') }}" alt="note-small" class="mr-2"
+                                 width="23">
+                            <p>{{ (tag.title|length > 20 ? tag.title|slice(0, 20) ~ '…' : tag.title) }}</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+
+    {#	<div class="settings fixed">#}
+
+    {#		<a href="{{ path('app_logout') }}" class="inline-flex ml-2 mr-4">#}
+    {#			<img src="{{ asset('build/images/icons/logout.png') }}" class="mr-2" alt="logout">#}
+    {#			<p class="mt-1">Log Out</p>#}
+    {#		</a>#}
+
+    {#		<a href="#" class="inline-flex">#}
+    {#			<img class="mr-2" src="{{ asset('build/images/icons/settings.png') }}" alt="settings">#}
+    {#			<p class="mt-1">Profile</p>#}
+    {#		</a>#}
+
+    {#	</div>#}
+
+</div>

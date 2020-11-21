@@ -1,0 +1,118 @@
+<div class="text-black w-auto h-full overflow-y-auto">
+
+    <div class="inline-flex pt-5 pr-5 w-full justify-end">
+
+		<span class="bg-white rounded-md mx-2 py-2">
+            {% if note.favourite %}
+                <img id="bookmark" class="remove-bm" src="{{ asset('build/images/icons/bookmark-filled.png') }}" alt="" data-id="{{ note.id }}">
+            {% else %}
+                <img id="bookmark" class="set-bm" src="{{ asset('build/images/icons/bookmark.png') }}" alt="" data-id="{{ note.id }}">
+            {% endif %}
+		</span>
+
+        {% if note.tags %}
+            <div class="note-tags mr-2 font-semibold max-w-xl overflow-x-auto bg-white rounded-md inline-flex items-center justify-between">
+                {% for tag in note.tags %}
+                    <a class="inline-flex mx-2" href="{{ path('tags', {'alias':  tag.title}) }}">
+                        <img class="mr-2" src="{{ asset('build/images/icons/tag.png') }}" alt="notebook">
+                        <span class="mt-1">
+							{{ tag.title }}
+						</span>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if note.notebook %}
+            <a href="{{ path('notebooks', {'alias': note.notebook.title}) }}"
+               class="font-semibold bg-white rounded-md mx-2 py-2 px-4 inline-flex items-center">
+                <img class="mr-2" src="{{ asset('build/images/icons/book.png') }}" alt="notebook">
+                <p>{{ note.notebook.title }}</p>
+            </a>
+        {% endif %}
+
+        <a class="font-semibold py-2 px-4 inline-flex items-center bg-white rounded-md"
+           href="{{ path('note_edit', {'id': note.id}) }}">
+            <img class="mr-2" src="{{ asset('build/images/icons/edit.png') }}" alt="pen">
+            <p>Edit</p>
+        </a>
+
+        <a href="#" id="deleteBtn" class="font-semibold bg-white rounded-md mx-2 py-2 px-4 inline-flex items-center"
+           data-id="{{ note.id }}">
+            <img class="mr-2" src="{{ asset('build/images/icons/delete.png') }}" alt="trashcan">
+            <p>Delete</p>
+        </a>
+
+    </div>
+
+    <div class="note-content max-w-5xl px-24 mx-auto mb-5 break-words">
+        <h3 class="text-4xl font-bold mb-8 mt-4 max-w-full bg-white p-2 pr-8 rounded-lg w-auto inline-block">
+            {{ note.title }}
+        </h3>
+        <div class="mb-32 p-4 rounded-lg bg-white">
+            {{ note.content|raw }}
+        </div>
+    </div>
+
+    <script>
+        $('.note-container #deleteBtn').on('click', function (e) {
+            const noteId = $(this).data('id');
+            if (confirm('Delete Note?')) {
+                $.ajax({
+                    url: "{{ path('note_delete') }}",
+                    data: {
+                        'noteId': noteId
+                    },
+                    type: 'POST',
+                    success: function (data, response) {
+                        location.reload();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        alert('It was not possible to delete the note.');
+                    }
+                });
+            }
+        });
+
+        // Add bookmark
+        $("img#bookmark.set-bm").click(function () {
+            const bookmarkedNoteId = $(this).data('id');
+            $.ajax({
+                url: "{{ path('note_bookmark') }}",
+                data: {
+                    'bookmarkedNoteId': bookmarkedNoteId,
+                    'status': false,
+                },
+                type: 'POST',
+                success: function (data, response) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('It was not possible to set a bookmark for the note.');
+                }
+            })
+
+        });
+
+        // Remove Bookmark
+        $("img#bookmark.remove-bm").click(function () {
+            $.ajax({
+                url: "{{ path('note_bookmark') }}",
+                data: {
+                    'bookmarkedNoteId': $(this).data('id'),
+                    'status': false,
+                },
+                type: 'POST',
+                success: function (data, response) {
+                    location.reload();
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('It was not possible to remove the bookmark from the note.');
+                }
+            })
+
+        });
+
+    </script>
+
+</div>

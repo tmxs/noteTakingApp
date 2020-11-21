@@ -1,0 +1,21 @@
+<div class="notes-overview-container column bg-gray-200 w-1/5 border-r-2">
+
+    <div class="notes-container-header h-32 inline-flex flex-col w-full h-24 p-6 border-b-2">
+        <h1>All Notes</h1>
+
+        {#		<div><input type="text" id="note_form_title" name="note_form[title]" required="required" class="bg-white my-4 border border-gray-400 hover:border-gray-500 px-4 py-1 rounded-full focus:rounded-full" placeholder="Search for a note"></div>#}
+
+    </div>
+
+    <div class="notes-title-list overflow-y-auto">
+        {% for note in notes %}
+            <div class="note-item note-link py-2 px-8 w-11/12 bg-white my-2 mx-auto rounded"
+                 data-url="{{ path('note_show', {'id': note.id}) }}">
+                <h3 class="text-base mb-1 mt-2 font-semibold">{{ (note.title|length > 25 ? note.title|slice(0, 25) ~ '…' : note.title) }}</h3>
+                <p class="text-xs text-blue-600 mb-1">{{ note.lastEdited| ago }}</p>
+                <p class="text-sm mb-2 whitespace-no-wrap overflow-hidden">{{ (note.content|length > 20 ? note.content|striptags|slice(0, 20) ~ '…' : note.content|striptags) }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

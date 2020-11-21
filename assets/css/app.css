@@ -1,0 +1,246 @@
+p {
+    font-family: 'Poppins', sans-serif;
+}
+
+h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*.sidenav {*/
+/*	position: fixed;*/
+/*	height: 100%;*/
+/*	width: 250px;*/
+/*	z-index: 1;*/
+/*	top: 0;*/
+/*	left: 0;*/
+/*	overflow-x: hidden;*/
+/*	padding-top: 20px;*/
+/*	background: #0e0c28;*/
+/*	font-family: 'Poppins', sans-serif;*/
+/*}*/
+
+/*.sidenav a,*/
+/*.sidenav p {*/
+/*	color: #ffff;*/
+/*	font-weight: bold;*/
+/*	font-size: 20px;*/
+/*}*/
+/*.main-content {*/
+/*	margin-left: 250px;*/
+/*}*/
+
+/*.notes {*/
+/*	display: flex;*/
+/*	flex-direction: row;*/
+/*	align-content: flex-start;*/
+/*	position: fixed;*/
+/*	width: 100%;*/
+/*	height: 100%;*/
+/*}*/
+
+/*.notes-overview-container {*/
+/*	background: #f4f6f8;*/
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*	width: 18%;*/
+/*}*/
+
+/*.note-container {*/
+/*	width: 60%;*/
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*}*/
+
+/*.notes-container-header {*/
+/*	display: flex;*/
+/*	position: relative;*/
+/*	margin-bottom: 65px;*/
+/*	top: 30px;*/
+/*	left: 35px;*/
+/*	width: 80%;*/
+/*}*/
+
+/*.notes-container-header h2 {*/
+/*	font-weight: 600;*/
+/*}*/
+
+/*.notes-container-header .addNoteBtn {*/
+/*	border-radius: 20px;*/
+/*	font-weight: 600;*/
+/*}*/
+
+/*.notes-title-list {*/
+/*	max-height: 90%;*/
+/*	overflow-y: auto;*/
+/*	height: 825px;*/
+/*}*/
+
+
+/*.note-item {*/
+/*	border-bottom: 2px solid #b5b5b5;*/
+/*	height: 85px;*/
+/*}*/
+
+/*.note-item:first-child {*/
+/*	border-top: 2px solid #b5b5b5;*/
+/*}*/
+
+/*.note-item:hover {*/
+/*	cursor: pointer;*/
+/*}*/
+
+/*.active {*/
+/*	background: #ffff;*/
+/*}*/
+
+/*.note-container .noteContent {*/
+/*	width: 80%;*/
+/*	flex-wrap: wrap;*/
+/*	position: relative;*/
+/*	left: 10%;*/
+/*	top: 5%;*/
+/*}*/
+
+/*.notebook-heading {*/
+/*	width: 65%;*/
+/*}*/
+
+/*.note-title {*/
+/*	padding: 15px 35px;*/
+/*	font-weight: 600;*/
+/*	font-size: 19px;*/
+/*}*/
+
+/*.note-date {*/
+/*	left: 58%;*/
+/*	bottom: 45px;*/
+/*	width: 140px;*/
+/*	position: relative;*/
+/*	margin: 0;}*/
+
+/*.note-content-teaser {*/
+/*	font-size: 12px;*/
+/*	position: relative;*/
+/*	bottom: 35px;*/
+/*	left: 35px;*/
+/*	max-width: 90%;*/
+/*}*/
+
+/*.badge-pill {*/
+/*	border-radius: 12px;*/
+/*	padding-top: 0.6em;*/
+/*	position: relative;*/
+/*	bottom: 80px;*/
+/*}*/
+
+/*form#note_form {*/
+/*	width: 85%;*/
+/*	position: relative;*/
+/*	display: flex;*/
+/*	left: 15%;*/
+/*	top: 35px;*/
+/*}*/
+
+/*#note_form #note_form_title,*/
+/*.tox.tox-tinymce {*/
+/*	border-radius: 10px;*/
+/*	margin: 10px 0;*/
+/*}*/
+
+/*#note_form label {*/
+/*	font-size: 17px;*/
+/*	margin: 0 5px;*/
+/*}*/
+
+/*#note_form button#note_form_save {*/
+/*	border-radius: 20px;*/
+/*	width: 150px;*/
+/*	float: right;*/
+/*}*/
+
+/*.noteContent .btn-toolbar {*/
+/*	justify-content: flex-end;*/
+/*}*/
+
+/*#noteContent {*/
+/*	margin-top: 30px;*/
+/*	overflow-y: auto;*/
+/*	height: 750px;*/
+/*}*/
+
+/*.svg-inline--fa {*/
+/*	margin-right: 5px;*/
+/*}*/
+
+/*.sidenav ul {*/
+/*	color: white;*/
+/*	list-style: none;*/
+/*	position: relative;*/
+/*	right: 5px;*/
+/*}*/
+
+/*.sidenav ul li a {*/
+/*	font-size: 15px;*/
+/*	padding: 0;*/
+/*}*/
+
+.sidenav .settings {
+    /*	display: flex;*/
+    /*	position: fixed;*/
+    bottom: 10px;
+}
+
+.notes-title-list::-webkit-scrollbar,
+#noteContent::-webkit-scrollbar {
+    width: 5px;
+}
+
+.note-tags::-webkit-scrollbar {
+    height: 5px;
+}
+
+.notes-title-list::-webkit-scrollbar-thumb,
+.note-tags::-webkit-scrollbar-thumb,
+#noteContent::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+    border-radius: 5px;
+}
+
+.notes-title-list::-webkit-scrollbar-thumb:active,
+.note-tags::-webkit-scrollbar-thumb:active,
+#noteContent::-webkit-scrollbar-thumb:active {
+    background-color: #7e88ff;
+}
+
+.notes-title-list {
+    height: calc(100vh - 8rem);
+}
+
+/*.nav-item.active img {*/
+/*	height: 25px;*/
+/*}*/
+
+/*.nav-item.active {*/
+/*	background: aliceblue;*/
+/*	border-radius: 25px;*/
+/*	color: black;*/
+/*	padding: 5px 70px 5px 11px;*/
+/*}*/
+
+/*.sidenav .settings a {*/
+/*	padding: 10px;*/
+/*	font-size: 15px;*/
+/*}*/
+
+/*.content {*/
+/*	width: 60%;*/
+/*}*/
+
+/*.note-data {*/
+/*	width: 15%;*/
+/*	margin-left: 10%;*/
+/*}*/
+
+/*.sidenav .recentNotes p {*/
+/*	margin: 0;*/
+/*}*/

@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}My Notes{% endblock %}
+
+{% block body %}
+
+    {% if notes %}
+
+        <div class="notes flex flex-row h-screen">
+
+            {% include 'notes/note_list.html.twig' %}
+
+            <div class="note-container column w-4/5"></div>
+
+        </div>
+
+    {% else %}
+
+        <div class="w-2/5 mx-auto flex justify-center flex-col h-full">
+
+            <img class="mx-auto rounded-lg" src="{{ asset('build/images/notes-empty-state.png') }}" width="500"
+                 height="500" alt="empty-state-graphic">
+
+            <a href="{{ path('note_new') }}"
+               class="relative security-btn bg-button-blue w-48 text-white text-center my-4 mx-auto"
+               style="bottom: 75px;">Add A Note</a>
+
+        </div>
+
+    {% endif %}
+
+{% endblock %}

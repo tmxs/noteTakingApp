@@ -1,0 +1,81 @@
+{% block body %}
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    <div class="flex w-full h-screen">
+
+        <div class="w-1/2">
+
+            <h3 class="my-0 mx-auto text-center font-bold text-4xl w-2/4 mt-32 mb-6">Create your Account</h3>
+
+            {{ form_start(registrationForm, {
+                'attr': {
+                    'class': 'w-2/5 mx-auto px-6 pt-6 pb-8 mb-4'}
+            }) }}
+
+            {{ form_errors(registrationForm.email) }}
+
+            {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'block text-sm font-bold mb-2'}}) }}
+            {{ form_widget(registrationForm.email, {
+                'attr': {
+                    'placeholder': 'Your Email',
+                    'class': 'form-input rounded-full'
+                }}) }}
+
+            {{ form_errors(registrationForm.password.first) }}
+
+            <div class="inline-flex w-full">
+                <div class="w-full">
+                    {{ form_label(registrationForm.password.first, 'Password', {'label_attr': {'class': 'block text-sm font-bold mb-2'}}) }}
+                    {{ form_widget(registrationForm.password.first, {
+                        'attr': {
+                            'placeholder': 'Your Password',
+                            'class': 'form-input rounded-full'
+                        }}) }}
+                </div>
+                <div class="pt-8 pl-1" id="submitFirstPassword">
+                    <img src="{{ asset('build/images/icons/submit-password.png') }}" alt="">
+                </div>
+            </div>
+
+            <div id="secondPassword" class="hidden">
+                {{ form_label(registrationForm.password.second, 'Password Confirmation', {'label_attr': {'class': 'block text-sm font-bold mb-2'}}) }}
+                {{ form_widget(registrationForm.password.second, {
+                    'attr': {
+                        'placeholder': 'Confirm your Password',
+                        'class': 'form-input rounded-full'
+                    }}) }}
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-gray-500 font-bold">
+                    {{ form_widget(registrationForm.agreeTerms) }}
+                    <span class="text-sm">
+					Accept with Terms
+				</span>
+                </label>
+            </div>
+
+            <button type="submit" id="registrationBtn" class="security-btn w-full mb-4 bg-button-blue text-white">
+                Register
+            </button>
+            <a href="{{ path('app_login') }}" id="loginBtn" class="text-sm">Already have an Account ? <span
+                        class="text-button-blue underline">Log In</span></a>
+
+            {{ form_end(registrationForm) }}
+
+        </div>
+
+        <div class="w-1/2 bg-no-repeat bg-cover image"
+             style="background-image: url({{ asset('build/images/books.jpeg') }})"></div>
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}

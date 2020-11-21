@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Notebooks{% endblock %}
+
+{% block body %}
+
+    <div class="mt-8 pl-16 pr-24 mx-auto">
+
+        <div class="inline-flex mb-6">
+            <h1>Your Notebooks</h1>
+            {{ render(controller( 'App\\Controller\\NotebookController::notebookForm' )) }}
+        </div>
+
+        <table class="notebooks w-full bg-white">
+            <thead>
+            <tr>
+                <th class="text-left px-4 py-2 w-10/12">
+                    Title
+                </th>
+                <th class="px-4 py-2 w-1/12">
+                    Notes
+                </th>
+                <th class="px-4 py-2 w-1/12">
+                    Delete
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for notebook in notebooks %}
+                <tr>
+                    <td class="border w-10/12 px-4 py-2">
+                        <div class="inline-flex">
+                            <img class="mr-2" src="{{ asset('build/images/icons/book.png') }}" alt="pen">
+                            {{ notebook.title }} ({{ notebook.notes|length }})
+                        </div>
+                    </td>
+                    <td class="border w-1/12 px-4 py-2">
+                        <a href="{{ path('notebook_edit', { "id": notebook.id }) }}" data-id="{{ notebook.id }}"
+                           data-delete-path="{{ path('notebook_delete') }}">
+                            <img src="{{ asset('build/images/icons/edit.png') }}" alt="pen">
+                        </a>
+                    </td>
+                    <td class="border w-1/12 px-4 py-2">
+                        <a href="#" class="deleteBtn" data-id="{{ notebook.id }}">
+                            <img src="{{ asset('build/images/icons/delete.png') }}" alt="trashcan">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

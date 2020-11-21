@@ -1,0 +1,27 @@
+{{ form_errors(form) }}
+
+{{ form_start(form,
+    {
+        method: 'POST', action: path('notebook_new'),
+        'attr': { 'class': 'mx-4' }
+    }) }}
+
+<div class="inline-flex">
+
+    {{ form_row(form.title, {
+        'attr': {
+            'class': 'bg-white w-full border border-gray-400 hover:border-gray-500 px-4 py-1 rounded shadow',
+            'placeholder': 'Add new Notebook'
+        },
+        'label': false
+    }) }}
+
+    <button type="submit" id="notebook_form_save">
+        <img class="ml-2" src="{{ asset('build/images/icons/add.png') }}" alt="add-notebook">
+    </button>
+
+    {{ form_row(form._token) }}
+
+</div>
+
+{{ form_end(form) }}
