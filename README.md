@@ -16,8 +16,6 @@ Web application to create and manage notes (inspired by Evernote) developed with
 * [Docker](https://www.docker.com/)
 * [Webpack](https://webpack.js.org/) with Symfony's Webpack Encore Component
 * [Doctrine ORM](https://www.doctrine-project.org/)
-* [PhpUnit](https://phpunit.de/) with [Symfony PhpUnit Bridge](https://symfony.com/doc/current/components/phpunit_bridge.html)
-* [Behat](https://docs.behat.org)
 * [Tailwind CSS](https://tailwindcss.com/)
 
 ## Screenshots
