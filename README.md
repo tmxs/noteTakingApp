@@ -31,3 +31,7 @@ Web application to create and manage notes (inspired by Evernote) developed with
 ### Editor:
 
 ![notes-overview](https://raw.githubusercontent.com/tmxs/noteTakingApp/master/app/assets/images/screenshots/editor.png)
+
+### Notebook Overview:
+
+![notes-overview](https://raw.githubusercontent.com/tmxs/noteTakingApp/master/app/assets/images/screenshots/notebooks.png)
