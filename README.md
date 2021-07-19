@@ -17,6 +17,7 @@ Web application to create and manage notes (inspired by Evernote) developed with
 * [Webpack](https://webpack.js.org/) with Symfony's Webpack Encore Component
 * [Doctrine ORM](https://www.doctrine-project.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
+* Ajax & jQuery
 
 ### In Work
 
