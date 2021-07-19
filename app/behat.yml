@@ -1,0 +1,18 @@
+default:
+  suites:
+    default:
+        contexts:
+            - App\Tests\Behat\LoginContext
+  extensions:
+      FriendsOfBehat\SymfonyExtension:
+          bootstrap: 'config/bootstrap.php'
+          kernel:
+              class: 'App\Kernel'
+              path: ~
+              environment: ~
+              debug: ~
+      Behat\MinkExtension:
+        base_url: "http://example.com/"
+        sessions:
+          symfony:
+            symfony: ~
