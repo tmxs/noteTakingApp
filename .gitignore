@@ -5,7 +5,7 @@
 /public/bundles/
 /var/
 /vendor/
-/src/Migrations/
+app/src/Migrations/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -13,6 +13,10 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+###< symfony/php-cs-cache ###
+.php_cs.cache
+###> symfony/php-cs-cache ###
 
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
